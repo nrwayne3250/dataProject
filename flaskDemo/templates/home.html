@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+Number of registered users: {{count}}
+<br>
+Admins:
+    {% for user in user %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              ID: {{user[2]}}<br>
+              Name: <a class="mr-2" href="#">{{ user[0] }}</a><br>
+              Address: <small class="text-muted">{{ user[1]}}</small><br>
+            </div>
+
+          </div>
+        </article>
+    {% endfor %}
+
+{% endblock content %}

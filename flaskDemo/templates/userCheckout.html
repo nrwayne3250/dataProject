@@ -1,0 +1,10 @@
+{%extends "layout.html"%}
+{%block content%}
+USER CHECKOUT<br>
+Name: {{user.name}}<br>
+Address: {{user.address}}<br>
+Total: {{total}}<br>
+<h2><a class="article-title" href="{{ url_for('order', total = total )}}">Place Order</a></h2>
+
+
+{%endblock content %}

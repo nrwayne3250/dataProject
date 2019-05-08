@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<table style="width:100%" border="1">
+  <tr>
+    <th> Product</th>
+    <th> Price </th>
+  </tr>
+{% for product in products %}
+    <tr>
+
+      <th><a class="article-title" href="{{ url_for('indiProduct', productID=product["productID"])}}">{{ product["productName"] }}</a></th>
+      <th>${{ product['productPrice'] }}</th>
+
+
+    </tr>
+{% endfor %}
+<h3><a class="article-title" href="{{ url_for('displayProducts')}}">Back to all products</a></h3>
+{% endblock content %}

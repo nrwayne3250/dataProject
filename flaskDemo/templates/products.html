@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block content %}
+<style>
+.sidenav {
+
+  width: 100px;
+  position: fixed;
+  z-index: 1;
+  top: 100;
+  left: 0;
+  background-color: #eee;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+.main {
+  margin-left: 140px; /* Same width as the sidebar + left position in px */
+  font-size: 14px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+</style>
+<div class="sidenav">
+  <a href="{{url_for('displayCategory', category = 1)}}">CPU</a><br>
+  <a href="{{url_for('premiumCPUs')}}">Premium CPUs</a><br>
+  <a href="{{url_for('budgetCPUs')}}">Budget CPUs</a><br>
+  <a href="{{url_for('displayCategory', category = 2)}}">Memory</a><br>
+  <a href="{{url_for('displayCategory', category = 3)}}">Storage</a><br>
+  <a href="{{url_for('displayCategory', category = 4)}}">Power Supply</a><br>
+  <a href="{{url_for('displayCategory', category = 5)}}">GPU</a><br>
+  <a href="{{url_for('displayCategory', category = 6)}}">Fans</a><br>
+  <a href="{{url_for('displayCategory', category = 7)}}">MotherBoards</a><br>
+</div>
+<div class ="main">
+  <table style="width:100%" border="1">
+    <tr>
+        <th> Product </th>
+        <th> Price </th>
+    </tr>
+    {% for product in products %}
+    <tr>
+        <th><a class="article-title" href="{{ url_for('indiProduct', productID=product[1])}}">{{ product[0] }}   </a></th>
+        <th>${{ product[2] }}</th>
+    </tr>
+    {% endfor %}
+</div>
+
+{% endblock content %}
